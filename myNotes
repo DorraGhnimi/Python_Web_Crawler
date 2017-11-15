@@ -1,0 +1,34 @@
+
+
+
+------------------link_finder.py---------------------------------------------
+# taking a look at some html, sifting throough it, and find all of the links (<a> tab)
+# lucky for us python come with HTMLParser class that do 90% of that
+
+------------------spider.py-------------------------------------------------
+# we gonna have a bench of links in the waiting list,
+# the spider gonna grab one of those links and connect to that page
+# and then it will grab the html and throw it into the link_finder
+# link_finder gonna do what it has to do :parse throw it and return of all the links
+# then the spider gonna add em to the waiting list
+# check if it's not crawled already and add it to the adding list..
+# add em  to the crawled list after crawling'em
+#
+
+
+...
+class Spider:
+    # Class variables (static in java) , to be shared among all instances (spiders)
+    project_name = ''
+    base_url = ''
+    domain_name = ''
+    # Actual file file, stored in Disk, save data if we shut the computer down
+    queue_file = ''
+    crawled_file = ''
+    # Coz files are not efficient at all, specially when w're working with Multithreading w kadha
+    # Variable, set, stored in  RAM, to be quick, coz working only with file will slow the program down
+    queue = set()
+    crawled = set()
+
+    def __init__(self, project_name, base_url, domain_name):
+...
